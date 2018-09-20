@@ -1,4 +1,5 @@
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -12,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  * @author erick
  */
 public class map2 extends javax.swing.JFrame {
-    
+    int quantidadeBits=0;
+    String[] a = new String[4];
     /**
      * Creates new form map2
      */
@@ -40,6 +42,8 @@ public class map2 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableTrue = new javax.swing.JTable();
+        jLabelBits = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -125,20 +129,33 @@ public class map2 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableTrue);
 
+        jLabel4.setText("Quantidade de bits:");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabelBits, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelBits, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 7, Short.MAX_VALUE)
+                        .addComponent(jLabel4)))
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel2);
@@ -149,9 +166,17 @@ public class map2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        Object row[] = {jTextA.getText(),jTextB.getText(),jTextS.getText()};
+        if(quantidadeBits<4)
+        {
+            Object row[] = {jTextA.getText(),jTextB.getText(),jTextS.getText()};
+            quantidadeBits++;
+            ((DefaultTableModel)jTableTrue.getModel()).addRow(row);
+            jLabelBits.setText(Integer.toString(quantidadeBits));
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "MAPA DE 2 VARIAVEIS, ACEITA NO MAXIMO 4 BITS! ESTUDE MAIS!");
+        }
         
-        ((DefaultTableModel)jTableTrue.getModel()).addRow(row);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     /**
@@ -194,6 +219,8 @@ public class map2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelBits;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
