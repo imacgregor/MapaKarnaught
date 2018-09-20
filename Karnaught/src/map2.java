@@ -13,7 +13,10 @@ import javax.swing.table.DefaultTableModel;
  * @author erick
  */
 public class map2 extends javax.swing.JFrame {
+    simplificacao simpli = new simplificacao();
+    
     int quantidadeBits=0;
+    
     String[] a = new String[4];
     String[] b = new String[4];
     String[] s = new String[4];
@@ -46,6 +49,11 @@ public class map2 extends javax.swing.JFrame {
         jTableTrue = new javax.swing.JTable();
         jLabelBits = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jButtonSimplificar = new javax.swing.JButton();
+        _A_B = new javax.swing.JLabel();
+        _AB = new javax.swing.JLabel();
+        A_B = new javax.swing.JLabel();
+        AB = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -133,13 +141,22 @@ public class map2 extends javax.swing.JFrame {
 
         jLabel4.setText("Quantidade de bits:");
 
+        jButtonSimplificar.setText("Simplificar");
+        jButtonSimplificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSimplificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonSimplificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addGap(56, 56, 56)
                         .addComponent(jLabelBits, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,13 +172,23 @@ public class map2 extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelBits, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 7, Short.MAX_VALUE)
-                        .addComponent(jLabel4)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jButtonSimplificar))))
                 .addContainerGap())
         );
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(160, 50, 470, 470);
+        getContentPane().add(_A_B);
+        _A_B.setBounds(760, 110, 50, 30);
+        getContentPane().add(_AB);
+        _AB.setBounds(830, 100, 40, 40);
+        getContentPane().add(A_B);
+        A_B.setBounds(760, 160, 50, 30);
+        getContentPane().add(AB);
+        AB.setBounds(830, 150, 30, 40);
 
         setSize(new java.awt.Dimension(1128, 601));
         setLocationRelativeTo(null);
@@ -186,6 +213,41 @@ public class map2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonAddActionPerformed
 
+    private void jButtonSimplificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSimplificarActionPerformed
+        // TODO add your handling code here:
+        preenchendoMapa();
+       // _A_B.setText(simpli.transfereDados(a, b, s, quantidadeBits));
+    }//GEN-LAST:event_jButtonSimplificarActionPerformed
+
+    void preenchendoMapa()
+    {
+        int i;
+        for(i=0;i<quantidadeBits;i++)
+        {
+            if(a[i].equals("0") && b[i].equals("0"))
+            {
+                _A_B.setText(s[i]);
+            } else {
+                if(a[i].equals("0") && b[i].equals("1"))
+                {
+                   _AB.setText(s[i]);
+                }else
+                {
+                    if(a[i].equals("1") && b[i].equals("0"))
+                    {
+                        A_B.setText(s[i]);
+                    }else
+                    {
+                        if(a[i].equals("1") && b[i].equals("1"))
+                        {
+                            AB.setText(s[i]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -222,7 +284,12 @@ public class map2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AB;
+    private javax.swing.JLabel A_B;
+    private javax.swing.JLabel _AB;
+    private javax.swing.JLabel _A_B;
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonSimplificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
