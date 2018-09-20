@@ -15,6 +15,8 @@ import javax.swing.table.DefaultTableModel;
 public class map2 extends javax.swing.JFrame {
     int quantidadeBits=0;
     String[] a = new String[4];
+    String[] b = new String[4];
+    String[] s = new String[4];
     /**
      * Creates new form map2
      */
@@ -169,6 +171,11 @@ public class map2 extends javax.swing.JFrame {
         if(quantidadeBits<4)
         {
             Object row[] = {jTextA.getText(),jTextB.getText(),jTextS.getText()};
+            
+            a[quantidadeBits] = jTextA.getText();
+            b[quantidadeBits] = jTextB.getText();
+            s[quantidadeBits] = jTextS.getText();
+            
             quantidadeBits++;
             ((DefaultTableModel)jTableTrue.getModel()).addRow(row);
             jLabelBits.setText(Integer.toString(quantidadeBits));
