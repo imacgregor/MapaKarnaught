@@ -10,6 +10,8 @@
  */
 public class tela extends javax.swing.JFrame {
     map2 tela2var = new map2();
+    map3 tela3var = new map3();
+    map4 tela4var = new map4();
     
     /**
      * Creates new form tela
@@ -173,16 +175,20 @@ public class tela extends javax.swing.JFrame {
     private void jButton2varActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2varActionPerformed
         // TODO add your handling code here:
         tela2var.setVisible(true);
-        dispose();
+        setVisible(false);
 
     }//GEN-LAST:event_jButton2varActionPerformed
 
     private void jButton3varActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3varActionPerformed
         // TODO add your handling code here:
+        tela3var.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton3varActionPerformed
 
     private void jButton4varActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4varActionPerformed
         // TODO add your handling code here:
+        tela4var.setVisible(true);
+        dispose();
     }//GEN-LAST:event_jButton4varActionPerformed
 
     private void jButton5varActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5varActionPerformed
